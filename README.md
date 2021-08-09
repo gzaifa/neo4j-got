@@ -21,7 +21,7 @@ We will be using data made public by GitHub user mathbeveridge, and presented by
 As the data is very much smaller than the yelp dataset which I had explored recently, it should be relatively fast to use the [LOAD CSV](https://neo4j.com/developer/guide-import-csv/) cypher command directly from the browser command line.  
 The files are in CSV format with header "Source,Target,Type,weight,book":
 ![image](https://user-images.githubusercontent.com/830693/128684189-ccf6e93e-3d4f-4019-bb6d-1fed2e229030.png)
-Since the Type is all "undirected", we will ignore it. Before importing, it is a good practise to create any unique constraints first as we certainly do not want multiple nodes of the same person appearing in our graph.
+Since the Type is all "undirected", we will ignore it. Before importing, it is a good practise to create any unique constraints first as we certainly do not want multiple nodes of the same person appearing in our graph and the corresponding index create will hopefully make the merge commands run faster.
 <pre>CREATE CONSTRAINT ON (p:Person) ASSERT p.id IS UNIQUE</pre>
 
 <pre>UNWIND ['1','2','3','45'] as book
@@ -88,8 +88,9 @@ RETURN c.id AS person, size( (c)-[:INTERACTS_1]-() ) AS degree ORDER BY degree D
 |"Robb-Stark"                             |35      |
 |"Sansa-Stark"                            |35      |
 |"Bran-Stark"                             |32      |
-|"Cersei-Lannister"                       |30      |
-Dear MoD does not even feature in the top 10 in book 1 and is overshadowed by the Lannisters in book 4 and 5:
+|"Cersei-Lannister"                       |30      |  
+  
+Dear MoD does not even feature in the top 10 in book 1 and is overshadowed by the Lannisters in book 4 and 5:   
 |"person"                                 |"degree"|
 |:---|---: |
 |"Jaime-Lannister"                        |67      |
