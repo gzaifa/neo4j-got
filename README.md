@@ -1,5 +1,5 @@
 # Exploring and analysing the Game Of Thrones dataset using visualisation powered by vis.js
-Using information from epic fantasy series for graph exploration and analysis seems to be really popular with the data science community, with many posts on Game of Thrones, Lord of the Rings, and Star Wars. I thought it would be fun to follow some of the posts along with GoT data, even if the finale of GoT television series was disappointing to say the least.
+Using information from epic fantasy series for graph exploration and analysis seems to be really popular with the data science community, with many posts on Game of Thrones, Lord of the Rings, and Star Wars. I thought it would be fun to follow some of the posts along with GoT data, even if the finale of GoT television series was disappointing to say the least.  
 The visualisation capabilities of [neovis.js](https://github.com/neo4j-contrib/neovis.js/) is certainly more impactful, flexible (configuration options), and performant than provided in Neo4j's desktop browser.  
 ![image](https://user-images.githubusercontent.com/830693/128681138-e215f79e-060b-4ce3-aa9a-a4aeb48126b3.png)
 [HTML](https://github.com/gzaifa/neo4j-got/blob/main/got-community.html) available.
@@ -90,7 +90,7 @@ RETURN c.id AS person, size( (c)-[:INTERACTS_1]-() ) AS degree ORDER BY degree D
 |"Bran-Stark"                             |32      |
 |"Cersei-Lannister"                       |30      |  
   
-Dear MoD does not even feature in the top 10 in book 1 and is overshadowed by the Lannisters in book 4 and 5:   
+Dear MoD does not feature in the top 10 in book 1 and is overshadowed by the Lannisters in book 4 and 5:   
 |"person"                                 |"degree"|
 |:---|---: |
 |"Jaime-Lannister"                        |67      |
