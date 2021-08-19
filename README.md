@@ -35,7 +35,7 @@ CALL apoc.merge.relationship(
     'INTERACTS_' + book, 
     {}, 
     {weight:toFloat(weight)}, 
-    target) YIELD relationship
+    target) YIELD rel
 RETURN distinct 'done'</pre>
 
 ## Step 2: Identify persons of interest
